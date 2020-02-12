@@ -90,25 +90,7 @@ namespace tablesSoC
                             else
                                 NotRdytoDrvMde = "0x0 (Off)";
                             break;
-                        case 2:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() != "Not Displayed")
-                                SoCDisplayed = "0x0 (SelDrvMde01)";
-                            else
-                                SoCDisplayed = "0x1 (SelDrvMde02)";
-                            break;
                         case 3:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Yes")
-                                SoCInvalid = "0xFF (Invalid)";
-                            break;
-                        case 4:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "100")
-                                SoCInvalid = "0x7F (100%)";
-                            else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "99")
-                                SoCInvalid = "0x3F (10 to 99)";
-                            else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "9")
-                                SoCInvalid = "0xF (0 to 9)";
-                            break;
-                        case 5:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Blue")
                                 SoCFillColor = "0x0 (Null)";
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Amber")
@@ -116,7 +98,7 @@ namespace tablesSoC
                             else
                                 SoCFillColor = "0x2 (ZeroDteDepletedBattery)";
                             break;
-                        case 6:
+                        case 4:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Light")
                             {
                                 AmbientTheme = "0x1 (Auto Day)";
@@ -133,7 +115,7 @@ namespace tablesSoC
                                 Litval = "0xFF (Invalid)";
                             }
                             break;
-                        case 7:
+                        case 5:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "No")
                                 HwyAssistActv = "0";
                             break;
