@@ -66,7 +66,7 @@ namespace tablesSoC
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView2.DataSource = bindingSource1;
-            GetData("Select * from dispGp");
+            GetData("Select * from Icons1");
 
             string[] ignSt = { "0x4 (Run)", "0x8 (Start)" };
             string NotRdytoDrvMde = null;
@@ -78,7 +78,7 @@ namespace tablesSoC
             string HwyAssistActv = null;
             string final = null;
 
-            for (int rowIndex = 0; rowIndex <= 41; rowIndex++) //leer la base de datos
+            for (int rowIndex = 0; rowIndex <= 29; rowIndex++) //leer la base de datos
             {
                 for (int colIndex = 1; colIndex < dataGridView2.Columns.Count; colIndex++) //colIndex = 1 ignore ID field
                 {
