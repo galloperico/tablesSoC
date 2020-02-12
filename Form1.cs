@@ -75,7 +75,7 @@ namespace tablesSoC
             string Litval = null;
             string final = null;
 
-            for (int rowIndex = 0; rowIndex <= 41; rowIndex++) //leer la base de datos
+            for (int rowIndex = 0; rowIndex <= 3; rowIndex++) //leer la base de datos
             {
                 for (int colIndex = 1; colIndex < dataGridView2.Columns.Count; colIndex++) //colIndex = 1 ignore ID field
                 {
