@@ -70,8 +70,6 @@ namespace tablesSoC
 
             string[] ignSt = { "0x4 (Run)", "0x8 (Start)" };
             string NotRdytoDrvMde = null;
-            string SoCDisplayed = null;
-            string SoCInvalid = null;
             string SoCFillColor = null;
             string AmbientTheme = null;
             string Litval = null;
@@ -128,9 +126,6 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "Ignition_Status = " + ignSt[k] + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply = " + NotRdytoDrvMde + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "ActvDrvMde_D2_Stat = " + SoCDisplayed + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply = " + SoCInvalid + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "BattTracLoSoc_D_Dsply = " + SoCFillColor + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
