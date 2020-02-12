@@ -80,6 +80,7 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\CarSymbols1.datasource" />
     <None Include="Properties\DataSources\dispGp.datasource" />
     <None Include="Properties\DataSources\displaygph.datasource" />
     <None Include="Properties\DataSources\Graphic.datasource" />

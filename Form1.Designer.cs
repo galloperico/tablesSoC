@@ -95,7 +95,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(tablesSoC.dispGp);
+            this.bindingSource1.DataSource = typeof(tablesSoC.CarSymbols1);
             // 
             // Form1
             // 

@@ -66,16 +66,13 @@ namespace tablesSoC
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView2.DataSource = bindingSource1;
-            GetData("Select * from dispGp");
+            GetData("Select * from CarSymbols1");
 
             string[] ignSt = { "0x4 (Run)", "0x8 (Start)" };
             string NotRdytoDrvMde = null;
             string SoCDisplayed = null;
-            string SoCInvalid = null;
-            string SoCFillColor = null;
             string AmbientTheme = null;
             string Litval = null;
-            string HwyAssistActv = null;
             string final = null;
 
             for (int rowIndex = 0; rowIndex <= 41; rowIndex++) //leer la base de datos
@@ -92,50 +89,21 @@ namespace tablesSoC
                             break;
                         case 2:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() != "Not Displayed")
-                                SoCDisplayed = "0x0 (SelDrvMde01)";
+                                SoCDisplayed = "0x0 (SelDrvMde01 Go)";
                             else
-                                SoCDisplayed = "0x1 (SelDrvMde02)";
+                                SoCDisplayed = "0x1 (SelDrvMde02 != Go)";
                             break;
                         case 3:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Yes")
-                                SoCInvalid = "0xFF (Invalid)";
-                            break;
-                        case 4:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "100")
-                                SoCInvalid = "0x7F (100%)";
-                            else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "99")
-                                SoCInvalid = "0x3F (10 to 99)";
-                            else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "9")
-                                SoCInvalid = "0xF (0 to 9)";
-                            break;
-                        case 5:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Blue")
-                                SoCFillColor = "0x0 (Null)";
-                            else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Amber")
-                                SoCFillColor = "0x1 (LoDTE)";
-                            else
-                                SoCFillColor = "0x2 (ZeroDteDepletedBattery)";
-                            break;
-                        case 6:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Light")
+                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Day")
                             {
                                 AmbientTheme = "0x1 (Auto Day)";
                                 Litval = "0x0 (Night)";
                             }
-                            else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Dark Night")
+                            else
                             {
                                 AmbientTheme = "0x2 (Auto Night)";
                                 Litval = "0x3 (Twilight)";
                             }
-                            else
-                            {
-                                AmbientTheme = "0x4 (Manual Night Bright)";
-                                Litval = "0xFF (Invalid)";
-                            }
-                            break;
-                        case 7:
-                            if (dataGridView2[colIndex, rowIndex].Value.ToString() == "No")
-                                HwyAssistActv = "0";
                             break;
                     }
                 }
@@ -147,9 +115,6 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply = " + NotRdytoDrvMde + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "ActvDrvMde_D2_Stat = " + SoCDisplayed + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply = " + SoCInvalid + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "BattTracLoSoc_D_Dsply = " + SoCFillColor + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
                     final += "*)" + " " + "Populate results";
