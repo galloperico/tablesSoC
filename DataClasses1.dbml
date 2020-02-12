@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="displayGraphics" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MXD64L17S2\SQLEXPRESS;Initial Catalog=displayGraphics;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="tablesSoC.Properties.Settings" SettingsPropertyName="displayGraphicsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.dispGp" Member="dispGps">
+    <Type Name="dispGp">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[Not Ready to Drive Mode]" Member="Not_Ready_to_Drive_Mode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[State Of Charge (Numeric % Display)]" Member="State_Of_Charge__Numeric___Display_" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[SoC Invalid]" Member="SoC_Invalid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[State Of Charge Display]" Member="State_Of_Charge_Display" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[State of Charge Gauge Fill Color]" Member="State_of_Charge_Gauge_Fill_Color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Ambient theme]" Member="Ambient_theme" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Highway Assist Active]" Member="Highway_Assist_Active" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
