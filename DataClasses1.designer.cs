@@ -30,9 +30,9 @@ namespace tablesSoC
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertdispGp(dispGp instance);
-    partial void UpdatedispGp(dispGp instance);
-    partial void DeletedispGp(dispGp instance);
+    partial void Insertgauge(gauge instance);
+    partial void Updategauge(gauge instance);
+    partial void Deletegauge(gauge instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -65,17 +65,17 @@ namespace tablesSoC
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<dispGp> dispGps
+		public System.Data.Linq.Table<gauge> gauges
 		{
 			get
 			{
-				return this.GetTable<dispGp>();
+				return this.GetTable<gauge>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dispGp")]
-	public partial class dispGp : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.gauge")]
+	public partial class gauge : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -84,17 +84,11 @@ namespace tablesSoC
 		
 		private string _Not_Ready_to_Drive_Mode;
 		
-		private string _State_Of_Charge__Numeric___Display_;
-		
-		private string _SoC_Invalid;
-		
-		private string _State_Of_Charge_Display;
-		
-		private string _State_of_Charge_Gauge_Fill_Color;
+		private string _State_of_Charge_Gauge__Horizontal_Bar_;
 		
 		private string _Ambient_theme;
 		
-		private string _Highway_Assist_Active;
+		private string _State_of_Charge_Gauge_Fill_Color;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -104,26 +98,20 @@ namespace tablesSoC
     partial void OnIDChanged();
     partial void OnNot_Ready_to_Drive_ModeChanging(string value);
     partial void OnNot_Ready_to_Drive_ModeChanged();
-    partial void OnState_Of_Charge__Numeric___Display_Changing(string value);
-    partial void OnState_Of_Charge__Numeric___Display_Changed();
-    partial void OnSoC_InvalidChanging(string value);
-    partial void OnSoC_InvalidChanged();
-    partial void OnState_Of_Charge_DisplayChanging(string value);
-    partial void OnState_Of_Charge_DisplayChanged();
-    partial void OnState_of_Charge_Gauge_Fill_ColorChanging(string value);
-    partial void OnState_of_Charge_Gauge_Fill_ColorChanged();
+    partial void OnState_of_Charge_Gauge__Horizontal_Bar_Changing(string value);
+    partial void OnState_of_Charge_Gauge__Horizontal_Bar_Changed();
     partial void OnAmbient_themeChanging(string value);
     partial void OnAmbient_themeChanged();
-    partial void OnHighway_Assist_ActiveChanging(string value);
-    partial void OnHighway_Assist_ActiveChanged();
+    partial void OnState_of_Charge_Gauge_Fill_ColorChanging(string value);
+    partial void OnState_of_Charge_Gauge_Fill_ColorChanged();
     #endregion
 		
-		public dispGp()
+		public gauge()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int ID
 		{
 			get
@@ -163,82 +151,22 @@ namespace tablesSoC
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State Of Charge (Numeric % Display)]", Storage="_State_Of_Charge__Numeric___Display_", DbType="NVarChar(50)")]
-		public string State_Of_Charge__Numeric___Display_
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State of Charge Gauge (Horizontal Bar)]", Storage="_State_of_Charge_Gauge__Horizontal_Bar_", DbType="NVarChar(50)")]
+		public string State_of_Charge_Gauge__Horizontal_Bar_
 		{
 			get
 			{
-				return this._State_Of_Charge__Numeric___Display_;
+				return this._State_of_Charge_Gauge__Horizontal_Bar_;
 			}
 			set
 			{
-				if ((this._State_Of_Charge__Numeric___Display_ != value))
+				if ((this._State_of_Charge_Gauge__Horizontal_Bar_ != value))
 				{
-					this.OnState_Of_Charge__Numeric___Display_Changing(value);
+					this.OnState_of_Charge_Gauge__Horizontal_Bar_Changing(value);
 					this.SendPropertyChanging();
-					this._State_Of_Charge__Numeric___Display_ = value;
-					this.SendPropertyChanged("State_Of_Charge__Numeric___Display_");
-					this.OnState_Of_Charge__Numeric___Display_Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SoC Invalid]", Storage="_SoC_Invalid", DbType="NVarChar(50)")]
-		public string SoC_Invalid
-		{
-			get
-			{
-				return this._SoC_Invalid;
-			}
-			set
-			{
-				if ((this._SoC_Invalid != value))
-				{
-					this.OnSoC_InvalidChanging(value);
-					this.SendPropertyChanging();
-					this._SoC_Invalid = value;
-					this.SendPropertyChanged("SoC_Invalid");
-					this.OnSoC_InvalidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State Of Charge Display]", Storage="_State_Of_Charge_Display", DbType="NVarChar(50)")]
-		public string State_Of_Charge_Display
-		{
-			get
-			{
-				return this._State_Of_Charge_Display;
-			}
-			set
-			{
-				if ((this._State_Of_Charge_Display != value))
-				{
-					this.OnState_Of_Charge_DisplayChanging(value);
-					this.SendPropertyChanging();
-					this._State_Of_Charge_Display = value;
-					this.SendPropertyChanged("State_Of_Charge_Display");
-					this.OnState_Of_Charge_DisplayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State of Charge Gauge Fill Color]", Storage="_State_of_Charge_Gauge_Fill_Color", DbType="NVarChar(50)")]
-		public string State_of_Charge_Gauge_Fill_Color
-		{
-			get
-			{
-				return this._State_of_Charge_Gauge_Fill_Color;
-			}
-			set
-			{
-				if ((this._State_of_Charge_Gauge_Fill_Color != value))
-				{
-					this.OnState_of_Charge_Gauge_Fill_ColorChanging(value);
-					this.SendPropertyChanging();
-					this._State_of_Charge_Gauge_Fill_Color = value;
-					this.SendPropertyChanged("State_of_Charge_Gauge_Fill_Color");
-					this.OnState_of_Charge_Gauge_Fill_ColorChanged();
+					this._State_of_Charge_Gauge__Horizontal_Bar_ = value;
+					this.SendPropertyChanged("State_of_Charge_Gauge__Horizontal_Bar_");
+					this.OnState_of_Charge_Gauge__Horizontal_Bar_Changed();
 				}
 			}
 		}
@@ -263,22 +191,22 @@ namespace tablesSoC
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Highway Assist Active]", Storage="_Highway_Assist_Active", DbType="NVarChar(50)")]
-		public string Highway_Assist_Active
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State of Charge Gauge Fill Color]", Storage="_State_of_Charge_Gauge_Fill_Color", DbType="NVarChar(50)")]
+		public string State_of_Charge_Gauge_Fill_Color
 		{
 			get
 			{
-				return this._Highway_Assist_Active;
+				return this._State_of_Charge_Gauge_Fill_Color;
 			}
 			set
 			{
-				if ((this._Highway_Assist_Active != value))
+				if ((this._State_of_Charge_Gauge_Fill_Color != value))
 				{
-					this.OnHighway_Assist_ActiveChanging(value);
+					this.OnState_of_Charge_Gauge_Fill_ColorChanging(value);
 					this.SendPropertyChanging();
-					this._Highway_Assist_Active = value;
-					this.SendPropertyChanged("Highway_Assist_Active");
-					this.OnHighway_Assist_ActiveChanged();
+					this._State_of_Charge_Gauge_Fill_Color = value;
+					this.SendPropertyChanged("State_of_Charge_Gauge_Fill_Color");
+					this.OnState_of_Charge_Gauge_Fill_ColorChanged();
 				}
 			}
 		}
