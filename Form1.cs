@@ -105,7 +105,7 @@ namespace tablesSoC
                             break;
                         case 4:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "100")
-                                SoCInvalid = "0x7F (100%)";
+                                SoCInvalid = "0xC8 (100%)";
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "99")
                                 SoCInvalid = "0x3F (10 to 99)";
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "9")
@@ -167,9 +167,9 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "BattTracLoSoc_D_Dsply = " + SoCFillColor + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "LAFeatStatIn = " + LAFeatStatIn + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "TJAWarnRqIn = " + TJAWarnRqIn + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "TJAStatIn = " + TJAStatIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "LaActvStats_D_Dsply = " + LAFeatStatIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "TjaWarn_D_Rq = " + TJAWarnRqIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "Tja_D_Stat = " + TJAStatIn + "," + "\n";
                     final += "*)" + " " + "Get screenshot and verify if display graphic is present: " + scrShot + "," +"\n";
                     final += "*)" + " " + "Populate results";
                 }
