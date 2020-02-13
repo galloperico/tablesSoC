@@ -158,7 +158,6 @@ namespace tablesSoC
 
                 for (int k = 0; k < ignSt.Length; k++) //repetir el test case por cada power mode
                 {
-                    final += "*)" + " " + "Set VOPS Configuration" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Ignition_Status = " + ignSt[k] + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply = " + NotRdytoDrvMde + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
