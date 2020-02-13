@@ -95,9 +95,9 @@ namespace tablesSoC
                             break;
                         case 2:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() != "Not Displayed")
-                                SoCDisplayed = "0x0 (SelDrvMde01 Go)";
-                            else
                                 SoCDisplayed = "0x1 (SelDrvMde02 != Go)";
+                            else
+                                SoCDisplayed = "0x0 (SelDrvMde01 Go)";
                             break;
                         case 3:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Yes")
