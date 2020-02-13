@@ -66,7 +66,7 @@ namespace tablesSoC
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView2.DataSource = bindingSource1;
-            GetData("Select * from dispGp");
+            GetData("Select * from displayGra");
 
             string[] ignSt = { "0x4 (Run)", "0x8 (Start)" };
             string NotRdytoDrvMde = null;
@@ -75,7 +75,10 @@ namespace tablesSoC
             string SoCFillColor = null;
             string AmbientTheme = null;
             string Litval = null;
-            string HwyAssistActv = null;
+            string LAFeatStatIn = null;
+            string TJAWarnRqIn = null;
+            string TJAStatIn = null;
+            string scrShot = null;
             string final = null;
 
             for (int rowIndex = 0; rowIndex <= 41; rowIndex++) //leer la base de datos
@@ -92,9 +95,9 @@ namespace tablesSoC
                             break;
                         case 2:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() != "Not Displayed")
-                                SoCDisplayed = "0x0 (SelDrvMde01)";
+                                SoCDisplayed = "0x0 (SelDrvMde01 Go)";
                             else
-                                SoCDisplayed = "0x1 (SelDrvMde02)";
+                                SoCDisplayed = "0x1 (SelDrvMde02 != Go)";
                             break;
                         case 3:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Yes")
@@ -135,7 +138,20 @@ namespace tablesSoC
                             break;
                         case 7:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "No")
-                                HwyAssistActv = "0";
+                            {
+                                LAFeatStatIn = "0x15 (Left Intervene Right)";
+                                TJAWarnRqIn = "0x0 (NoWarning)";
+                                TJAStatIn = "0x2 (Active)";
+                            }
+                            else
+                            {
+                                LAFeatStatIn = "0x7";
+                                TJAWarnRqIn = "0x0 (NoWarning)";
+                                TJAStatIn = "0x7 (ExtendedActive)";
+                            }
+                            break;
+                        case 8:
+                            scrShot = dataGridView2[colIndex, rowIndex].Value.ToString();
                             break;
                     }
                 }
@@ -152,6 +168,10 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "BattTracLoSoc_D_Dsply = " + SoCFillColor + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "LAFeatStatIn = " + LAFeatStatIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "TJAWarnRqIn = " + TJAWarnRqIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "TJAStatIn = " + TJAStatIn + "," + "\n";
+                    final += "*)" + " " + "Get screenshot and verify if display graphic is present: " + scrShot + "," +"\n";
                     final += "*)" + " " + "Populate results";
                 }
 

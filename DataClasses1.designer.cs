@@ -30,9 +30,9 @@ namespace tablesSoC
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertdispGp(dispGp instance);
-    partial void UpdatedispGp(dispGp instance);
-    partial void DeletedispGp(dispGp instance);
+    partial void InsertdisplayGra(displayGra instance);
+    partial void UpdatedisplayGra(displayGra instance);
+    partial void DeletedisplayGra(displayGra instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -65,17 +65,17 @@ namespace tablesSoC
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<dispGp> dispGps
+		public System.Data.Linq.Table<displayGra> displayGras
 		{
 			get
 			{
-				return this.GetTable<dispGp>();
+				return this.GetTable<displayGra>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dispGp")]
-	public partial class dispGp : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.displayGra")]
+	public partial class displayGra : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -95,6 +95,8 @@ namespace tablesSoC
 		private string _Ambient_theme;
 		
 		private string _Highway_Assist_Active;
+		
+		private string _Screenshot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -116,14 +118,16 @@ namespace tablesSoC
     partial void OnAmbient_themeChanged();
     partial void OnHighway_Assist_ActiveChanging(string value);
     partial void OnHighway_Assist_ActiveChanged();
+    partial void OnScreenshotChanging(string value);
+    partial void OnScreenshotChanged();
     #endregion
 		
-		public dispGp()
+		public displayGra()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int ID
 		{
 			get
@@ -279,6 +283,26 @@ namespace tablesSoC
 					this._Highway_Assist_Active = value;
 					this.SendPropertyChanged("Highway_Assist_Active");
 					this.OnHighway_Assist_ActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Screenshot", DbType="NVarChar(50)")]
+		public string Screenshot
+		{
+			get
+			{
+				return this._Screenshot;
+			}
+			set
+			{
+				if ((this._Screenshot != value))
+				{
+					this.OnScreenshotChanging(value);
+					this.SendPropertyChanging();
+					this._Screenshot = value;
+					this.SendPropertyChanged("Screenshot");
+					this.OnScreenshotChanged();
 				}
 			}
 		}
