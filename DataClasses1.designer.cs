@@ -30,9 +30,9 @@ namespace tablesSoC
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertIcons1(Icons1 instance);
-    partial void UpdateIcons1(Icons1 instance);
-    partial void DeleteIcons1(Icons1 instance);
+    partial void InsertIcons2(Icons2 instance);
+    partial void UpdateIcons2(Icons2 instance);
+    partial void DeleteIcons2(Icons2 instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -65,17 +65,17 @@ namespace tablesSoC
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Icons1> Icons1s
+		public System.Data.Linq.Table<Icons2> Icons2s
 		{
 			get
 			{
-				return this.GetTable<Icons1>();
+				return this.GetTable<Icons2>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Icons1")]
-	public partial class Icons1 : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Icons2")]
+	public partial class Icons2 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -91,6 +91,8 @@ namespace tablesSoC
 		private string _Ambient_theme;
 		
 		private string _Highway_Assist_Active;
+		
+		private string _Screenshot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -108,9 +110,11 @@ namespace tablesSoC
     partial void OnAmbient_themeChanged();
     partial void OnHighway_Assist_ActiveChanging(string value);
     partial void OnHighway_Assist_ActiveChanged();
+    partial void OnScreenshotChanging(string value);
+    partial void OnScreenshotChanged();
     #endregion
 		
-		public Icons1()
+		public Icons2()
 		{
 			OnCreated();
 		}
@@ -231,6 +235,26 @@ namespace tablesSoC
 					this._Highway_Assist_Active = value;
 					this.SendPropertyChanged("Highway_Assist_Active");
 					this.OnHighway_Assist_ActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Screenshot", DbType="NVarChar(50)")]
+		public string Screenshot
+		{
+			get
+			{
+				return this._Screenshot;
+			}
+			set
+			{
+				if ((this._Screenshot != value))
+				{
+					this.OnScreenshotChanging(value);
+					this.SendPropertyChanging();
+					this._Screenshot = value;
+					this.SendPropertyChanged("Screenshot");
+					this.OnScreenshotChanged();
 				}
 			}
 		}

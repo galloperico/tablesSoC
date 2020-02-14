@@ -95,7 +95,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(tablesSoC.Icons1);
+            this.bindingSource1.DataSource = typeof(tablesSoC.Icons2);
             // 
             // Form1
             // 

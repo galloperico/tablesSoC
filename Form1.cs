@@ -66,14 +66,17 @@ namespace tablesSoC
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView2.DataSource = bindingSource1;
-            GetData("Select * from Icons1");
+            GetData("Select * from Icons2");
 
             string[] ignSt = { "0x4 (Run)", "0x8 (Start)" };
             string NotRdytoDrvMde = null;
             string SoCFillColor = null;
             string AmbientTheme = null;
             string Litval = null;
-            string HwyAssistActv = null;
+            string LAFeatStatIn = null;
+            string TJAWarnRqIn = null;
+            string TJAStatIn = null;
+            string scrShot = null;
             string final = null;
 
             for (int rowIndex = 0; rowIndex <= 29; rowIndex++) //leer la base de datos
@@ -115,7 +118,20 @@ namespace tablesSoC
                             break;
                         case 5:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "No")
-                                HwyAssistActv = "0";
+                            {
+                                LAFeatStatIn = "0x15 (Left Intervene Right)";
+                                TJAWarnRqIn = "0x0 (NoWarning)";
+                                TJAStatIn = "0x2 (Active)";
+                            }
+                            else
+                            {
+                                LAFeatStatIn = "0x7";
+                                TJAWarnRqIn = "0x0 (NoWarning)";
+                                TJAStatIn = "0x7 (ExtendedActive)";
+                            }
+                            break;
+                        case 6:
+                            scrShot = dataGridView2[colIndex, rowIndex].Value.ToString();
                             break;
                     }
                 }
@@ -129,6 +145,10 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "BattTracLoSoc_D_Dsply = " + SoCFillColor + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "LaActvStats_D_Dsply = " + LAFeatStatIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "TjaWarn_D_Rq = " + TJAWarnRqIn + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "Tja_D_Stat = " + TJAStatIn + "," + "\n";
+                    final += "*)" + " " + "Get screenshot and verify if display graphic is present: " + scrShot + "," + "\n";
                     final += "*)" + " " + "Populate results";
                 }
 
