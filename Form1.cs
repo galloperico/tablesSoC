@@ -73,6 +73,7 @@ namespace tablesSoC
             string SoCDisplayed = null;
             string SoCGuageDestFlag = null;
             string AmbientTheme = null;
+            string PercToDestIn = null;
             string Litval = null;
             string scrShot = null;
             string final = null;
@@ -97,17 +98,35 @@ namespace tablesSoC
                             break;
                         case 3:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Flag")
+                            {
                                 SoCGuageDestFlag = "0x1 (Flag)";
+                                PercToDestIn = "0x0";
+                            }
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Home")
+                            {
                                 SoCGuageDestFlag = "0x3 (Home)";
+                                PercToDestIn = "0x7F";
+                            }
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Work")
+                            {
                                 SoCGuageDestFlag = "0x4 (Work)";
+                                PercToDestIn = "0xFF";
+                            }
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Charge Port")
+                            {
                                 SoCGuageDestFlag = "0x2 (Charge Port)";
+                                PercToDestIn = "0x7F";
+                            }   
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "None")
+                            {
                                 SoCGuageDestFlag = "0x0 (No Trip)";
+                                PercToDestIn = "0x0";
+                            }
                             else
+                            {
                                 SoCGuageDestFlag = "0x5 (Not Used)";
+                                PercToDestIn = "0xFF";
+                            }   
                             break;
                         case 4:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Light")
@@ -141,6 +160,7 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply = 0x64 (50%)" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "StopoverType_D_Stat = " + SoCGuageDestFlag + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "DestSocRqd_Pc_Dsply = " + PercToDestIn + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
                     final += "*)" + " " + "Get screenshot and verify if display graphic is present: " + scrShot + "," + "\n";
