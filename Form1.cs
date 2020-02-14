@@ -107,9 +107,9 @@ namespace tablesSoC
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "100")
                                 SoCInvalid = "0xC8 (100%)";
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "99")
-                                SoCInvalid = "0x3F (10 to 99)";
+                                SoCInvalid = "0x64 (50%)";
                             else if (dataGridView2[colIndex, rowIndex].Value.ToString() == "9")
-                                SoCInvalid = "0xF (0 to 9)";
+                                SoCInvalid = "0xA (5%)";
                             break;
                         case 5:
                             if (dataGridView2[colIndex, rowIndex].Value.ToString() == "Blue")
