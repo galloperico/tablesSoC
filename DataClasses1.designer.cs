@@ -30,9 +30,9 @@ namespace tablesSoC
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertgauge_destination(gauge_destination instance);
-    partial void Updategauge_destination(gauge_destination instance);
-    partial void Deletegauge_destination(gauge_destination instance);
+    partial void InsertgaugeDestination(gaugeDestination instance);
+    partial void UpdategaugeDestination(gaugeDestination instance);
+    partial void DeletegaugeDestination(gaugeDestination instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -65,17 +65,17 @@ namespace tablesSoC
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<gauge_destination> gauge_destinations
+		public System.Data.Linq.Table<gaugeDestination> gaugeDestinations
 		{
 			get
 			{
-				return this.GetTable<gauge_destination>();
+				return this.GetTable<gaugeDestination>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.gauge_destination")]
-	public partial class gauge_destination : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.gaugeDestination")]
+	public partial class gaugeDestination : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -89,6 +89,8 @@ namespace tablesSoC
 		private string _SoC_Gauge_Dest_Flag;
 		
 		private string _Ambient_Theme;
+		
+		private string _Screenshot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -104,9 +106,11 @@ namespace tablesSoC
     partial void OnSoC_Gauge_Dest_FlagChanged();
     partial void OnAmbient_ThemeChanging(string value);
     partial void OnAmbient_ThemeChanged();
+    partial void OnScreenshotChanging(string value);
+    partial void OnScreenshotChanged();
     #endregion
 		
-		public gauge_destination()
+		public gaugeDestination()
 		{
 			OnCreated();
 		}
@@ -131,7 +135,7 @@ namespace tablesSoC
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Not Ready to Drive Mode]", Storage="_Not_Ready_to_Drive_Mode", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Not Ready to Drive Mode]", Storage="_Not_Ready_to_Drive_Mode", DbType="NVarChar(50)")]
 		public string Not_Ready_to_Drive_Mode
 		{
 			get
@@ -151,7 +155,7 @@ namespace tablesSoC
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State of Charge Gauge (Horizontal Bar)]", Storage="_State_of_Charge_Gauge__Horizontal_Bar_", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[State of Charge Gauge (Horizontal Bar)]", Storage="_State_of_Charge_Gauge__Horizontal_Bar_", DbType="NVarChar(50)")]
 		public string State_of_Charge_Gauge__Horizontal_Bar_
 		{
 			get
@@ -171,7 +175,7 @@ namespace tablesSoC
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SoC Gauge Dest Flag]", Storage="_SoC_Gauge_Dest_Flag", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SoC Gauge Dest Flag]", Storage="_SoC_Gauge_Dest_Flag", DbType="NVarChar(50)")]
 		public string SoC_Gauge_Dest_Flag
 		{
 			get
@@ -191,7 +195,7 @@ namespace tablesSoC
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Ambient Theme]", Storage="_Ambient_Theme", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Ambient Theme]", Storage="_Ambient_Theme", DbType="NVarChar(50)")]
 		public string Ambient_Theme
 		{
 			get
@@ -207,6 +211,26 @@ namespace tablesSoC
 					this._Ambient_Theme = value;
 					this.SendPropertyChanged("Ambient_Theme");
 					this.OnAmbient_ThemeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Screenshot", DbType="NVarChar(50)")]
+		public string Screenshot
+		{
+			get
+			{
+				return this._Screenshot;
+			}
+			set
+			{
+				if ((this._Screenshot != value))
+				{
+					this.OnScreenshotChanging(value);
+					this.SendPropertyChanging();
+					this._Screenshot = value;
+					this.SendPropertyChanged("Screenshot");
+					this.OnScreenshotChanged();
 				}
 			}
 		}
