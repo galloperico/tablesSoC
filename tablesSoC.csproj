@@ -83,6 +83,7 @@
     <None Include="Properties\DataSources\dispGp.datasource" />
     <None Include="Properties\DataSources\displaygph.datasource" />
     <None Include="Properties\DataSources\gauge.datasource" />
+    <None Include="Properties\DataSources\gauge2.datasource" />
     <None Include="Properties\DataSources\Graphic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

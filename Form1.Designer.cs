@@ -95,7 +95,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(tablesSoC.gauge);
+            this.bindingSource1.DataSource = typeof(tablesSoC.gauge2);
             // 
             // Form1
             // 

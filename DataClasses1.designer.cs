@@ -30,9 +30,9 @@ namespace tablesSoC
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertgauge(gauge instance);
-    partial void Updategauge(gauge instance);
-    partial void Deletegauge(gauge instance);
+    partial void Insertgauge2(gauge2 instance);
+    partial void Updategauge2(gauge2 instance);
+    partial void Deletegauge2(gauge2 instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -65,17 +65,17 @@ namespace tablesSoC
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<gauge> gauges
+		public System.Data.Linq.Table<gauge2> gauge2s
 		{
 			get
 			{
-				return this.GetTable<gauge>();
+				return this.GetTable<gauge2>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.gauge")]
-	public partial class gauge : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.gauge2")]
+	public partial class gauge2 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -89,6 +89,8 @@ namespace tablesSoC
 		private string _Ambient_theme;
 		
 		private string _State_of_Charge_Gauge_Fill_Color;
+		
+		private string _Screenshot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -104,9 +106,11 @@ namespace tablesSoC
     partial void OnAmbient_themeChanged();
     partial void OnState_of_Charge_Gauge_Fill_ColorChanging(string value);
     partial void OnState_of_Charge_Gauge_Fill_ColorChanged();
+    partial void OnScreenshotChanging(string value);
+    partial void OnScreenshotChanged();
     #endregion
 		
-		public gauge()
+		public gauge2()
 		{
 			OnCreated();
 		}
@@ -207,6 +211,26 @@ namespace tablesSoC
 					this._State_of_Charge_Gauge_Fill_Color = value;
 					this.SendPropertyChanged("State_of_Charge_Gauge_Fill_Color");
 					this.OnState_of_Charge_Gauge_Fill_ColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Screenshot", DbType="NVarChar(50)")]
+		public string Screenshot
+		{
+			get
+			{
+				return this._Screenshot;
+			}
+			set
+			{
+				if ((this._Screenshot != value))
+				{
+					this.OnScreenshotChanging(value);
+					this.SendPropertyChanging();
+					this._Screenshot = value;
+					this.SendPropertyChanged("Screenshot");
+					this.OnScreenshotChanged();
 				}
 			}
 		}
