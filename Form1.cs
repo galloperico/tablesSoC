@@ -139,7 +139,7 @@ namespace tablesSoC
                     final += "*)" + " " + "Send signal periodically: " + "PwPckTqRdy_B_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "ActvDrvMde_D2_Stat = " + SoCDisplayed + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply = 0x64 (50%)" + "," + "\n";
-                    final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply_UB = 0x1 (Fresh)," + "," + "\n";
+                    final += "*)" + " " + "Send signal periodically: " + "BattTracSoc_Pc_Dsply_UB = 0x1 (Fresh)" + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "StopoverType_D_Stat = " + SoCGuageDestFlag + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "DrvDsplyPalette_D_Stat = " + AmbientTheme + "," + "\n";
                     final += "*)" + " " + "Send signal periodically: " + "Litval = " + Litval + "," + "\n";
